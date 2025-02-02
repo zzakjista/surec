@@ -12,9 +12,9 @@ def add_header(file_path):
     with open(file_path, "r+", encoding="utf-8") as f:
         content = f.read()
         if not content.startswith(HEADER):
-            content.insert(0, HEADER + "\n")
+            content = HEADER + "\n" + content
             f.seek(0)
-            f.writelines(content)
+            f.write(content)
 
 
 def check_header(file_path):
